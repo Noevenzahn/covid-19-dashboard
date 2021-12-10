@@ -1,8 +1,9 @@
-import { Component } from 'react';
 import ReactMapGL from 'react-map-gl';
+import { useState } from 'react';
 
-class Map extends Component {
-  state = {
+export default function WorldMap() {
+
+  const initialState = {
     viewport: {
       width: '100vw',
       height: '100vh',
@@ -12,16 +13,14 @@ class Map extends Component {
     }
   };
 
-  render() {
-    return (
-      <ReactMapGL
-        mapStyle="mapbox://styles/mapbox/dark-v10"
-        mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDB0eXVtMDFhNTUybnA4d2R0MXp0bzkifQ.fREP65CSCE02YF1QM6ayHg"
-        onViewportChange={(viewport) => this.setState({ viewport })}
-        {...this.state.viewport}
-      />
-    );
-  }
-}
+  const [state, setState] = useState(initialState)
 
-export default Map;
+  return (
+    <ReactMapGL
+      mapStyle="mapbox://styles/mapbox/dark-v10"
+      mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDB0eXVtMDFhNTUybnA4d2R0MXp0bzkifQ.fREP65CSCE02YF1QM6ayHg"
+      onViewportChange={(viewport) => setState({ viewport })}
+      {...state.viewport}
+    />
+  );
+}
