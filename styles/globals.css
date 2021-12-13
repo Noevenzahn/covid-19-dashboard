@@ -15,3 +15,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.mapboxgl-popup {
+  color: #fff;
+}
+.mapboxgl-popup .mapboxgl-popup-content {
+  background-color: #575757;
+}
+.overlays .mapboxgl-popup .mapboxgl-popup-tip {
+  border-bottom-color: #575757;
+}
