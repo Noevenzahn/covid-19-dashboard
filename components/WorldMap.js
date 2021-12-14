@@ -102,7 +102,7 @@ export default function WorldMap() {
       
       attributionControl={false}
       mapStyle="mapbox://styles/mapbox/dark-v10"
-      mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDZvMm5vbjAxMjUydW4zdWlpZmh4bGgifQ.UHUeas7nhz5X0iKJ87QQLA"
+      mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDFyM2E4ZjFrcjIyb3A4Z2M5bGVpNGsifQ.Xs9GQEe28Uup1LYNrO09cQ"
     >
     <AttributionControl compact={false} style={{ bottom: 0, right: 0 }} />
     <FullscreenControl />
