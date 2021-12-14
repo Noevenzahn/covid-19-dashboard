@@ -1,5 +1,5 @@
 import ReactMapGL, { FullscreenControl, NavigationControl, AttributionControl, Source, Layer, Popup } from 'react-map-gl';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { fetcher } from '../lib/Fetcher';
 
 export default function WorldMap() {
@@ -82,10 +82,11 @@ export default function WorldMap() {
     if(newId !== id) {
       setId(newId);
       
-      const { cases, deaths, country } = features[0].properties;
-      const coordinates = features[0].geometry.coordinates.slice();   
+      const { country, cases, todayCases, deaths, todayDeaths, recovered, todayRecovered, active, critical } = features[0].properties;
+      const coordinates = features[0].geometry.coordinates.slice();
+      const mortalityRate = (deaths / cases * 100).toFixed(2);
       setPopUpCoordinates({ long: coordinates[0], lat: coordinates[1] });
-      setPopUpContent({ cases, deaths, country });
+      setPopUpContent({ country, cases, todayCases, deaths, todayDeaths, recovered, todayRecovered, active, critical, mortalityRate });
     }
   };
   
@@ -101,7 +102,7 @@ export default function WorldMap() {
       
       attributionControl={false}
       mapStyle="mapbox://styles/mapbox/dark-v10"
-      mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDFyM2E4ZjFrcjIyb3A4Z2M5bGVpNGsifQ.Xs9GQEe28Uup1LYNrO09cQ"
+      mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDZvMm5vbjAxMjUydW4zdWlpZmh4bGgifQ.UHUeas7nhz5X0iKJ87QQLA"
     >
     <AttributionControl compact={false} style={{ bottom: 0, right: 0 }} />
     <FullscreenControl />
@@ -119,8 +120,16 @@ export default function WorldMap() {
         anchor="top" 
         >
           <h3>{popUpContent.country}</h3>
-          <p>Total Cases: {popUpContent.cases}</p>
-          <p>Total Deaths: {popUpContent.deaths}</p>
+          <p>active: {popUpContent.active}</p>
+          <p>critical: {popUpContent.critical}</p>
+          <p>cases: {popUpContent.cases}</p>
+          <p>todays cases: {popUpContent.todayCases}</p>
+          <p>deaths: {popUpContent.deaths}</p>
+          <p>todays deaths: {popUpContent.todayDeaths}</p>
+          <p>recovered: {popUpContent.recovered}</p>
+          <p>today recovered: {popUpContent.todayRecovered}</p>
+          <p>mortality rate: {popUpContent.mortalityRate}%</p>
+
       </Popup>}
     </ReactMapGL>
   );
