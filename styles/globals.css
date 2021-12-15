@@ -1,10 +1,18 @@
+:root {
+  --popupColor: #575757;
+  --font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font);
+  font-size: 62.5%;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: #18191a;
+}
+#map {
+  display: grid;
 }
 
 a {
@@ -16,12 +24,42 @@ a {
   box-sizing: border-box;
 }
 
+.mapboxgl-ctrl-icon {
+  background-color: #cecccc;
+}
 .mapboxgl-popup {
   color: #fff;
 }
 .mapboxgl-popup .mapboxgl-popup-content {
-  background-color: #575757;
+  background-color: var(--popupColor);
 }
-.overlays .mapboxgl-popup .mapboxgl-popup-tip {
-  border-bottom-color: #575757;
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  border-left-color: var(--popupColor) !important;
+}
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  border-right-color: var(--popupColor) !important;
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color: var(--popupColor) !important;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+  border-bottom-color: var(--popupColor) !important;
+}
+
+.dataswitch {
+  position: absolute;
+  justify-self: center;
+  top: 1vh;
+  z-index: 1;
+}
+.dataswitch__button {
+  margin: 0 0.5vw;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  color: #fff;
+  background-color: var(--popupColor);
+  border: none;
+  cursor: pointer;
 }
