@@ -1,22 +1,31 @@
 import ReactMapGL, { FullscreenControl, NavigationControl, AttributionControl, Source, Layer, Popup } from 'react-map-gl';
 import { useEffect, useState } from 'react';
-import { fetcher } from '../lib/Fetcher';
+import { WorldDataFetcher } from '../lib/Fetchers';
 import DataSwitch from './DataSwitch';
+
 
 export default function WorldMap() {
 
   const [geojson, setGeojson] = useState();
   const [showedData, setShowedData] = useState({dataType: "cases", circleColor: '#FF331F'});
-
-
+  const [viewport, setViewport] = useState({ latitude: 27, longitude: 10, zoom: 2 })
+  // states for the on hover popups
+  const [showPopup, setShowPopup] = useState(false);
+  const [id, setId] = useState();
+  const [newId, setNewId] = useState();
+  const [popUpCoordinates, setPopUpCoordinates] = useState({ long: 1, lat: 2 });
+  const [popUpContent, setPopUpContent] = useState({ cases: 1, deaths: 0, mortalityRate: 0 });
+  
+  // fetch world data
   useEffect(() => {
-    fetcher("https://disease.sh/v3/covid-19/countries")
+    WorldDataFetcher("https://disease.sh/v3/covid-19/countries")
       .then((data) => setGeojson({
         type: 'FeatureCollection',
         features: data
       }))
   }, [])
 
+  // making resizing of the browser window possible 
   useEffect(() => {
     const resize = () => {
       setViewport(viewport => { return { ...viewport, width: "100vw", height: "100vh" } })
@@ -44,18 +53,7 @@ export default function WorldMap() {
       "circle-color": showedData.circleColor
     }
   };
-
-  const [viewport, setViewport] = useState({
-    latitude: 27,
-    longitude: 10,
-    zoom: 2.25
-  })
-
-  const [showPopup, setShowPopup] = useState(false);
-  const [id, setId] = useState();
-  const [newId, setNewId] = useState();
-  const [popUpCoordinates, setPopUpCoordinates] = useState({ long: 1, lat: 2 });
-  const [popUpContent, setPopUpContent] = useState({ cases: 1, deaths: 0, mortalityRate: 0 });
+  
 
   const handleHover = ({ features }) => {
 
@@ -67,7 +65,6 @@ export default function WorldMap() {
 
     if (newId !== id) {
       setId(newId);
-
       const { country, cases, todayCases, deaths, todayDeaths, recovered, todayRecovered, active, critical } = features[0].properties;
       const coordinates = features[0].geometry.coordinates.slice();
       const mortalityRate = (deaths / cases * 100).toFixed(2);
