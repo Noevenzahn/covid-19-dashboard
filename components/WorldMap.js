@@ -2,6 +2,7 @@ import ReactMapGL, { FullscreenControl, NavigationControl, AttributionControl, S
 import { useEffect, useState } from 'react';
 import { WorldDataFetcher } from '../lib/Fetchers';
 import DataSwitch from './DataSwitch';
+import styles from "../styles/WorldmapPage.module.css";
 
 
 export default function WorldMap() {
@@ -54,7 +55,6 @@ export default function WorldMap() {
     }
   };
   
-
   const handleHover = ({ features }) => {
 
     const hoveredFeature = features && features[0];
@@ -75,7 +75,7 @@ export default function WorldMap() {
 
   if (!geojson) return <div>loading...</div>
   return (
-    <div id="map">
+    <div id={styles.map}>
       <DataSwitch setShowedData={setShowedData} />
       <ReactMapGL
         width="100vw"
@@ -87,7 +87,7 @@ export default function WorldMap() {
 
         attributionControl={false}
         mapStyle="mapbox://styles/mapbox/dark-v10"
-        mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDFyM2E4ZjFrcjIyb3A4Z2M5bGVpNGsifQ.Xs9GQEe28Uup1LYNrO09cQ"
+        mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDgwamxyYzM4NHIydnA4Y3ZqbXQ3MmIifQ.eqaKtWYXhRnakGf5uAlaOw"
       >
         <AttributionControl compact={false} style={{ bottom: 0, right: 0 }} />
         <FullscreenControl style={{ top: "1.5vw", left: "1.5vw" }} />
