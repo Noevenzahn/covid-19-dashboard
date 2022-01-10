@@ -51,18 +51,35 @@ export default function Home() {
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
-      // {
-      //   label: 'Dataset 2',
-      //   data: labels.map(() => Math.random({ min: -1000, max: 1000 })),
-      //   borderColor: 'rgb(53, 162, 235)',
-      //   backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      // },
     ],
   };
 
-  if(covidData && covidData.casesHistory) {
+  if(covidData && covidData.casesHistory && covidData.recoveredHistory && covidData.deathsHistory) {
     console.log(covidData.overview.cases)
-    console.log(covidData.casesHistory.data[0].cases)
+    console.log(covidData.casesHistory.data.map((casesData) => [{x: casesData.date, y: casesData.cases}]))
+    chartData = {
+      labels: [],
+      datasets: [
+        {
+          label: 'Recovered',
+          data: covidData.recoveredHistory.data.map((recoveredData) => {return {x: recoveredData.date.substring(0, 10), y: recoveredData.recovered}}),
+          borderColor: 'rgb(0, 255, 0)',
+          backgroundColor: 'rgba(0, 255, 0, 0.5)',
+        },
+        {
+          label: 'Cases',
+          data: covidData.casesHistory.data.map((casesData) => {return {x: casesData.date.substring(0, 10), y: casesData.cases}}),
+          borderColor: 'rgb(255, 153, 51)',
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+          label: 'Deaths',
+          data: covidData.deathsHistory.data.map((deathsData) => {return {x: deathsData.date.substring(0, 10), y: deathsData.deaths}}),
+          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+      ],
+    };
   }
 
   if(!covidData) return <div>loading...</div>
