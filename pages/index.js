@@ -11,7 +11,7 @@ export default function Home() {
     deathsHistory: "germany/history/deaths/",
     recoveredHistory: "germany/history/recovered/",
     vaccinations: "vaccinations",
-    hospitalizations: "germany/history/hospitalization/",
+    hospitalizationHistory: "germany/history/hospitalization/",
     pcrTesting: "testing/history",
   };
   const [covidData, setCovidData] = useState();
@@ -42,7 +42,7 @@ export default function Home() {
   };
   
 
-  const chartData = {
+  const mainChartData = {
     labels: [],
     datasets: [
       {
@@ -53,11 +53,38 @@ export default function Home() {
       },
     ],
   };
+  const hospitalizationChartData = {
+    labels: [],
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}],
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  }
+  const pcrTestingChartData = {
+    labels: [],
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}],
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  }
 
-  if(covidData && covidData.casesHistory && covidData.recoveredHistory && covidData.deathsHistory) {
+  if(covidData 
+    && covidData.casesHistory
+    && covidData.recoveredHistory 
+    && covidData.deathsHistory 
+    && covidData.hospitalizationHistory
+    && covidData.pcrTesting) {
     console.log(covidData.overview.cases)
     console.log(covidData.casesHistory.data.map((casesData) => [{x: casesData.date, y: casesData.cases}]))
-    chartData = {
+    mainChartData = {
       labels: [],
       datasets: [
         {
@@ -80,15 +107,47 @@ export default function Home() {
         },
       ],
     };
+    hospitalizationChartData = {
+      labels: [],
+      datasets: [
+        {
+          label: 'Hospitalisations',
+          data: covidData.hospitalizationHistory.data.map((hospitalizationData) => {return {x: hospitalizationData.date.substring(0, 10), y: hospitalizationData.cases7Days}}),
+          borderColor: 'rgb(0, 255, 0)',
+          backgroundColor: 'rgba(0, 255, 0, 0.5)',
+        },
+      ],
+    };
+    pcrTestingChartData = {
+      labels: [],
+      datasets: [
+        {
+          label: 'PCR Tests',
+          data: covidData.pcrTesting.data.history.map((pcrTestingData) => {return {x: pcrTestingData.calendarWeek, y: pcrTestingData.performedTests}}),
+          borderColor: 'rgb(0, 255, 0)',
+          backgroundColor: 'rgba(0, 255, 0, 0.5)',
+        },
+        {
+          label: 'Positive Tests',
+          data: covidData.pcrTesting.data.history.map((pcrTestingData) => {return {x: pcrTestingData.calendarWeek, y: pcrTestingData.positiveTests}}),
+          borderColor: 'rgb(0, 255, 0)',
+          backgroundColor: 'rgba(0, 255, 0, 0.5)',
+        },
+      ],
+    };
   }
 
   if(!covidData) return <div>loading...</div>
   return (
-    <>
-      {/* <h1>{data.casesHistory[0]}</h1> */}
-      
+    <>      
       <Line
-        options={options} data={chartData}
+        options={options} data={mainChartData}
+      />
+      <Line
+        options={options} data={hospitalizationChartData}
+      />
+      <Line
+        options={options} data={pcrTestingChartData}
       />
     </>
   )
