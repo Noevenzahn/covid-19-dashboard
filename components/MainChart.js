@@ -59,8 +59,6 @@ export default function MainChart({ covidData }) {
 
     if (!covidData) return <div>loading...</div>
     return (
-        <div>
-            <Line options={options} data={mainChartData} />
-        </div>
+        <Line options={options} data={mainChartData} />
     )
 }

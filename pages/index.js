@@ -5,6 +5,9 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import HospitalizationChart from "../components/HospitalizationChart";
 import PcrTestingChart from "../components/PcrTestingChart";
 import MainChart from "../components/MainChart";
+import BoosterVaccChart from "../components/BoosterVaccChart";
+import FirstVaccChart from "../components/FirstVaccChart";
+import SecondVaccChart from "../components/SecondVaccChart";
 
 
 export default function Home() {
@@ -38,6 +41,9 @@ export default function Home() {
       <MainChart covidData={covidData} />
       <HospitalizationChart covidData={covidData} />
       <PcrTestingChart covidData={covidData} />
+      <BoosterVaccChart covidData={covidData} />
+      <FirstVaccChart covidData={covidData} />
+      <SecondVaccChart covidData={covidData} />
     </>
   )
 };

@@ -50,8 +50,6 @@ export default function PcrTestingChart({ covidData }) {
 
     if (!covidData) return <div>loading...</div>
     return (
-        <div>
-            <Line options={options} data={pcrTestingChartData} />
-        </div>
+        <Line options={options} data={pcrTestingChartData} />
     )
 }

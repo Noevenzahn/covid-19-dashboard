@@ -1,7 +1,7 @@
-import { Line } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 
-export default function HospitalizationChart({ covidData }) {
+export default function BoosterVaccChart({ covidData }) {
     
     const options = {
         responsive: true,
@@ -11,12 +11,12 @@ export default function HospitalizationChart({ covidData }) {
             },
             title: {
                 display: true,
-                text: 'Chart.js Line Chart',
+                text: 'Booster Vaccinations',
             },
         },
     };
     
-    const hospitalizationChartData = {
+    const BoosterVaccChartData = {
         labels: [],
         datasets: [
             {
@@ -29,14 +29,14 @@ export default function HospitalizationChart({ covidData }) {
     }
 
     if (covidData && covidData.hospitalizationHistory) {
-        hospitalizationChartData = {
+        BoosterVaccChartData = {
             labels: [],
             datasets: [
                 {
                     label: 'Hospitalisations',
-                    data: covidData.hospitalizationHistory.data.map((hospitalizationData) => { return { x: hospitalizationData.date.substring(0, 10), y: hospitalizationData.cases7Days } }),
+                    data: [covidData.vaccinations.data.boosterVaccination.quote * 100, 100 - covidData.vaccinations.data.boosterVaccination.quote * 100],
                     borderColor: 'rgb(0, 255, 0)',
-                    backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                    backgroundColor: ['rgba(0, 255, 0, 0.5)', 'rgba(255, 255, 255, 0.5)']
                 },
             ],
         };
@@ -44,6 +44,6 @@ export default function HospitalizationChart({ covidData }) {
     
     if (!covidData) return <div>loading...</div>
     return (
-        <Line options={options} data={hospitalizationChartData} />
+        <Doughnut options={options} data={BoosterVaccChartData} />
     )
 }
