@@ -5,27 +5,21 @@ export default function HospitalizationChart({ covidData }) {
     
     const options = {
         responsive: true,
+        maintainAspectRatio: true,
         plugins: {
             legend: {
                 position: 'top',
             },
             title: {
                 display: true,
-                text: 'Chart.js Line Chart',
+                text: 'Hospitalisations',
             },
         },
     };
     
     const hospitalizationChartData = {
         labels: [],
-        datasets: [
-            {
-                label: 'Dataset 1',
-                data: [{ x: '2016-12-25', y: 20 }, { x: '2016-12-26', y: 10 }],
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
-        ],
+        datasets: [],
     }
 
     if (covidData && covidData.hospitalizationHistory) {
@@ -35,8 +29,8 @@ export default function HospitalizationChart({ covidData }) {
                 {
                     label: 'Hospitalisations',
                     data: covidData.hospitalizationHistory.data.map((hospitalizationData) => { return { x: hospitalizationData.date.substring(0, 10), y: hospitalizationData.cases7Days } }),
-                    borderColor: 'rgb(0, 255, 0)',
-                    backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                    borderColor: '#2e33c7',
+                    backgroundColor: '#2e33c7',
                 },
             ],
         };

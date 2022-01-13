@@ -1,0 +1,75 @@
+
+#dashboard {
+    background-color: var(--dashboard-background);
+    display: grid;
+    height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "main-chart main-chart main-chart main-chart vaccinations vaccinations"
+    "hospitalisations hospitalisations hospitalisations testings testings testings";
+}
+#mainChart {
+
+    grid-area: main-chart;
+    display: grid;
+    place-items: center;
+}
+#vaccinationCharts {
+    display: grid;
+    padding: 0 20px 20px 0;
+    /* box-sizing: border-box; */
+    background-color: var(--dashboard-background);
+    gap: 20px;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    "a b"
+    "c d";
+    grid-area: vaccinations;
+}
+#dashboard canvas {
+    max-width: 90%;
+    max-height: 90%;
+}
+#vaccinationCharts canvas {
+    /* max-width: 70%;
+    max-height: 70%; */
+}
+#hospitalizationChart {
+    grid-area: hospitalisations;
+    display: grid;
+    place-items: center;
+}
+#PcrTestingChart {
+    grid-area: testings;
+    display: grid;
+    place-items: center;
+}
+#FirstVaccChart {
+    display: grid;
+    place-items: center;
+    grid-area: a;
+}
+#SecondVaccChart {
+    display: grid;
+    place-items: center;
+    grid-area: b;
+}
+#BoosterVaccChart {
+    display: grid;
+    place-items: center;
+    grid-area: c;
+}
+#RValueChart {
+    display: grid;
+    place-items: center;
+    grid-area: d;
+}
+.dashboard__element {
+    background-color: var(--element-background);
+    border-radius: 15px;
+    padding: 20px;
+}

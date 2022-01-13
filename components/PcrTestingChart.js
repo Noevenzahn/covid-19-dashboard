@@ -5,27 +5,21 @@ export default function PcrTestingChart({ covidData }) {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: true,
         plugins: {
             legend: {
                 position: 'top',
             },
             title: {
                 display: true,
-                text: 'Chart.js Line Chart',
+                text: 'PCR Tests',
             },
         },
     };
 
     const pcrTestingChartData = {
         labels: [],
-        datasets: [
-            {
-                label: 'Dataset 1',
-                data: [{ x: '2016-12-25', y: 20 }, { x: '2016-12-26', y: 10 }],
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
-        ],
+        datasets: [],
     }
 
     if (covidData && covidData.pcrTesting) {
@@ -35,14 +29,14 @@ export default function PcrTestingChart({ covidData }) {
                 {
                     label: 'PCR Tests',
                     data: covidData.pcrTesting.data.history.map((pcrTestingData) => { return { x: pcrTestingData.calendarWeek, y: pcrTestingData.performedTests } }),
-                    borderColor: 'rgb(0, 255, 0)',
-                    backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                    borderColor: '#2e33c7',
+                    backgroundColor: '#2e33c7',
                 },
                 {
                     label: 'Positive Tests',
                     data: covidData.pcrTesting.data.history.map((pcrTestingData) => { return { x: pcrTestingData.calendarWeek, y: pcrTestingData.positiveTests } }),
-                    borderColor: 'rgb(0, 255, 0)',
-                    backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                    borderColor: '#2e33c7',
+                    backgroundColor: '#2e33c7',
                 },
             ],
         };

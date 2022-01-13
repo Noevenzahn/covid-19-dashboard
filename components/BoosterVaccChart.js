@@ -5,6 +5,7 @@ export default function BoosterVaccChart({ covidData }) {
     
     const options = {
         responsive: true,
+        maintainAspectRatio: true,
         plugins: {
             legend: {
                 position: 'top',
@@ -18,25 +19,18 @@ export default function BoosterVaccChart({ covidData }) {
     
     const BoosterVaccChartData = {
         labels: [],
-        datasets: [
-            {
-                label: 'Dataset 1',
-                data: [{ x: '2016-12-25', y: 20 }, { x: '2016-12-26', y: 10 }],
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
-        ],
+        datasets: [],
     }
 
-    if (covidData && covidData.hospitalizationHistory) {
+    if (covidData && covidData.vaccinations) {
         BoosterVaccChartData = {
             labels: [],
             datasets: [
                 {
                     label: 'Hospitalisations',
                     data: [covidData.vaccinations.data.boosterVaccination.quote * 100, 100 - covidData.vaccinations.data.boosterVaccination.quote * 100],
-                    borderColor: 'rgb(0, 255, 0)',
-                    backgroundColor: ['rgba(0, 255, 0, 0.5)', 'rgba(255, 255, 255, 0.5)']
+                    borderColor: 'transparent',
+                    backgroundColor: ['#2e33c7', '#e5eaed']
                 },
             ],
         };

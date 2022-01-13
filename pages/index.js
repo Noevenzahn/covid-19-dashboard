@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Chart as ChartJS } from 'chart.js/auto';
 
+import styles from "../styles/Home.module.css";
 
 import HospitalizationChart from "../components/HospitalizationChart";
 import PcrTestingChart from "../components/PcrTestingChart";
@@ -33,17 +34,33 @@ export default function Home() {
     };
     fetchData();
   }, []);
-  console.log(covidData)
 
-  if(!covidData) return <div>loading...</div>
+  if (!covidData) return <div>loading...</div>
   return (
-    <>
-      <MainChart covidData={covidData} />
-      <HospitalizationChart covidData={covidData} />
-      <PcrTestingChart covidData={covidData} />
-      <BoosterVaccChart covidData={covidData} />
-      <FirstVaccChart covidData={covidData} />
-      <SecondVaccChart covidData={covidData} />
-    </>
+    <main id={styles.dashboard}>
+      <div id={styles.mainChart} className={styles.dashboard__element}>
+        <MainChart covidData={covidData} />
+      </div>
+      <div id={styles.vaccinationCharts} className={styles.dashboard__element}>
+        <div id={styles.FirstVaccChart} className={styles.dashboard__element}>
+          <FirstVaccChart covidData={covidData} />
+        </div>
+        <div id={styles.SecondVaccChart} className={styles.dashboard__element}>
+          <SecondVaccChart covidData={covidData} />
+        </div>
+        <div id={styles.BoosterVaccChart} className={styles.dashboard__element}>
+          <BoosterVaccChart covidData={covidData} />
+        </div>
+        <div id={styles.RValueChart} className={styles.dashboard__element}>
+          <BoosterVaccChart covidData={covidData} />
+        </div>
+      </div>
+      <div id={styles.hospitalizationChart} className={styles.dashboard__element}>
+        <HospitalizationChart covidData={covidData} />
+      </div>
+      <div id={styles.PcrTestingChart} className={styles.dashboard__element}>
+        <PcrTestingChart covidData={covidData} />
+      </div>
+    </main>
   )
 };
