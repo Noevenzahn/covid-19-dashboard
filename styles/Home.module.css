@@ -31,12 +31,7 @@
     grid-area: vaccinations;
 }
 #dashboard canvas {
-    max-width: 90%;
-    max-height: 90%;
-}
-#vaccinationCharts canvas {
-    /* max-width: 70%;
-    max-height: 70%; */
+    /* transform: scale(0.1); */
 }
 #hospitalizationChart {
     grid-area: hospitalisations;
