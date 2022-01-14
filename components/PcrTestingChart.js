@@ -8,11 +8,30 @@ export default function PcrTestingChart({ covidData }) {
         maintainAspectRatio: true,
         plugins: {
             legend: {
-                position: 'top',
+                position: 'bottom',
             },
             title: {
                 display: true,
                 text: 'PCR Tests',
+            },
+        },
+        elements: {
+            point:{
+                radius: 0
+            }
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false
+                    // color: "#e5eaed"
+                },
+            },
+            y: {
+                grid: {
+                    display: false,
+                    // color: "#e5eaed"
+                }
             },
         },
     };
@@ -27,16 +46,18 @@ export default function PcrTestingChart({ covidData }) {
             labels: [],
             datasets: [
                 {
-                    label: 'PCR Tests',
-                    data: covidData.pcrTesting.data.history.map((pcrTestingData) => { return { x: pcrTestingData.calendarWeek, y: pcrTestingData.performedTests } }),
-                    borderColor: '#2e33c7',
+                    label: 'Positive Tests',
+                    data: covidData.pcrTesting.data.history.map((pcrTestingData) => { return { x: pcrTestingData.calendarWeek, y: pcrTestingData.positiveTests } }),
+                    fill: true,
+                    borderColor: 'transparent',
                     backgroundColor: '#2e33c7',
                 },
                 {
-                    label: 'Positive Tests',
-                    data: covidData.pcrTesting.data.history.map((pcrTestingData) => { return { x: pcrTestingData.calendarWeek, y: pcrTestingData.positiveTests } }),
-                    borderColor: '#2e33c7',
-                    backgroundColor: '#2e33c7',
+                    label: 'PCR Tests',
+                    data: covidData.pcrTesting.data.history.map((pcrTestingData) => { return { x: pcrTestingData.calendarWeek, y: pcrTestingData.performedTests } }),
+                    fill: true,
+                    borderColor: 'transparent',
+                    backgroundColor: '#e5eaed',
                 },
             ],
         };

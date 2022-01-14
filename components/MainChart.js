@@ -1,4 +1,4 @@
-import { Line } from 'react-chartjs-2';
+import { Line, Chart } from 'react-chartjs-2';
 
 
 export default function MainChart({ covidData }) {
@@ -8,11 +8,36 @@ export default function MainChart({ covidData }) {
         maintainAspectRatio: true,
         plugins: {
             legend: {
-                position: 'top',
+                position: 'bottom',
             },
             title: {
                 display: true,
                 text: 'General Overview',
+            },
+        },
+        elements: {
+            point: {
+                radius: 0
+            }
+        },
+        scales: {
+            x: {
+                type: 'time',
+                time: {
+                    displayFormats: {
+                        month: 'MMM'
+                    }
+                },
+                grid: {
+                    display: false
+                    // color: "#e5eaed"
+                }
+            },
+            y: {
+                grid: {
+                    display: false,
+                    // color: "#e5eaed"
+                }
             },
         },
     };
@@ -30,18 +55,21 @@ export default function MainChart({ covidData }) {
             labels: [],
             datasets: [
                 {
+                    type: 'line',
                     label: 'Recovered',
                     data: covidData.recoveredHistory.data.map((recoveredData) => { return { x: recoveredData.date.substring(0, 10), y: recoveredData.recovered } }),
                     borderColor: '#2e33c7',
                     backgroundColor: '#2e33c7',
                 },
                 {
+                    type: 'line',
                     label: 'Cases',
                     data: covidData.casesHistory.data.map((casesData) => { return { x: casesData.date.substring(0, 10), y: casesData.cases } }),
                     borderColor: '#2e33c7',
                     backgroundColor: '#2e33c7',
                 },
                 {
+                    type: 'bar',
                     label: 'Deaths',
                     data: covidData.deathsHistory.data.map((deathsData) => { return { x: deathsData.date.substring(0, 10), y: deathsData.deaths } }),
                     borderColor: '#2e33c7',
@@ -53,6 +81,6 @@ export default function MainChart({ covidData }) {
 
     if (!covidData) return <div>loading...</div>
     return (
-        <Line options={options} data={mainChartData} />
+        <Chart type="bar" options={options} data={mainChartData} />
     )
 }

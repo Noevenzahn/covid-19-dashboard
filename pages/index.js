@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Chart as ChartJS } from 'chart.js/auto';
+import 'chartjs-adapter-moment';
 
 import styles from "../styles/Home.module.css";
 
@@ -41,7 +42,7 @@ export default function Home() {
       <div id={styles.mainChart} className={styles.dashboard__element}>
         <MainChart covidData={covidData} />
       </div>
-      <div id={styles.vaccinationCharts} className={styles.dashboard__element}>
+      <div id={styles.vaccinationCharts}>
         <div id={styles.FirstVaccChart} className={styles.dashboard__element}>
           <FirstVaccChart covidData={covidData} />
         </div>

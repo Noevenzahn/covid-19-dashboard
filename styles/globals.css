@@ -12,16 +12,14 @@ body {
   padding: 0;
   margin: 0;
   background-color: #18191a;
-  overflow: hidden;
+}
+* {
+  box-sizing: border-box;
 }
 a {
   color: inherit;
   text-decoration: none;
 }
-* {
-  box-sizing: border-box;
-}
-
 .mapboxgl-ctrl-icon {
   background-color: #cecccc !important;
 }
@@ -42,7 +40,4 @@ a {
 }
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
   border-bottom-color: var(--popupColor) !important;
-}
-canvas {
-  max-height: 50vh;
 }
