@@ -38,11 +38,9 @@ export default function Home() {
 
   if (!covidData) return <div>loading...</div>
   return (
-    <main id={styles.dashboard}>
-      <div id={styles.mainChart} className={styles.dashboard__element}>
+    // <main id={styles.dashboard}>
         <MainChart covidData={covidData} />
-      </div>
-      <div id={styles.vaccinationCharts}>
+      /* <div id={styles.vaccinationCharts}>
         <div id={styles.FirstVaccChart} className={styles.dashboard__element}>
           <FirstVaccChart covidData={covidData} />
         </div>
@@ -61,7 +59,7 @@ export default function Home() {
       </div>
       <div id={styles.PcrTestingChart} className={styles.dashboard__element}>
         <PcrTestingChart covidData={covidData} />
-      </div>
-    </main>
+      </div> */
+    // </main>
   )
 };
