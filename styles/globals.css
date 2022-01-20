@@ -3,7 +3,8 @@
   --dashboard-background: #18191a;
   --accent: #2e33c7;
   --popupColor: #575757;
-  --font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-family: var(--font);
   font-size: 62.5%;
 }

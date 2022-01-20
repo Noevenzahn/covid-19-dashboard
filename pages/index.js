@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Chart as ChartJS } from 'chart.js/auto';
-import 'chartjs-adapter-moment';
+import { Chart as ChartJS } from "chart.js/auto";
+import "chartjs-adapter-moment";
 
 import styles from "../styles/Home.module.css";
 
@@ -10,7 +10,6 @@ import MainChart from "../components/MainChart";
 import BoosterVaccChart from "../components/BoosterVaccChart";
 import FirstVaccChart from "../components/FirstVaccChart";
 import SecondVaccChart from "../components/SecondVaccChart";
-
 
 export default function Home() {
   const baseUrl = "https://api.corona-zahlen.org/";
@@ -36,11 +35,11 @@ export default function Home() {
     fetchData();
   }, []);
 
-  if (!covidData) return <div>loading...</div>
+  if (!covidData) return <div>loading...</div>;
   return (
     // <main id={styles.dashboard}>
-        <MainChart covidData={covidData} />
-      /* <div id={styles.vaccinationCharts}>
+    <MainChart covidData={covidData} />
+    /* <div id={styles.vaccinationCharts}>
         <div id={styles.FirstVaccChart} className={styles.dashboard__element}>
           <FirstVaccChart covidData={covidData} />
         </div>
@@ -61,5 +60,5 @@ export default function Home() {
         <PcrTestingChart covidData={covidData} />
       </div> */
     // </main>
-  )
-};
+  );
+}

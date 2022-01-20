@@ -1,20 +1,20 @@
 #map {
-    display: grid;
+  display: grid;
 }
 .dataswitch {
-    position: absolute;
-    justify-self: center;
-    top: 1vh;
-    z-index: 1;
+  position: absolute;
+  justify-self: center;
+  top: 1vh;
+  z-index: 1;
 }
 .dataswitch__button {
-    margin: 0 0.5vw;
-    padding: 0.75rem 1.5rem;
-    font-family: var(--font);
-    font-weight: 500;
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
-    color: #fff;
-    background-color: var(--popupColor);
-    border: none;
-    cursor: pointer;
+  margin: 0 0.5vw;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  color: #fff;
+  background-color: var(--popupColor);
+  border: none;
+  cursor: pointer;
 }
