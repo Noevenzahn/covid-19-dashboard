@@ -22,13 +22,11 @@ export default function PcrTestingChart({ covidData }) {
       x: {
         grid: {
           display: false,
-          // color: "#e5eaed"
         },
       },
       y: {
         grid: {
           display: false,
-          // color: "#e5eaed"
         },
       },
     },

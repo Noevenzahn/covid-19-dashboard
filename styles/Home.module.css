@@ -1,13 +1,3 @@
-#dashboard {
-  background-color: var(--dashboard-background);
-  display: grid;
-  gap: 20px;
-  padding: 20px;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
-  grid-template-areas:
-    "main-chart main-chart vaccinations vaccinations"
-    "hospitalisations hospitalisations testings testings";
-}
 #mainChart {
   grid-area: main-chart;
   display: grid;

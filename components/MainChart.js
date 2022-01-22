@@ -70,22 +70,10 @@ export default function MainChart({ covidData }) {
     datasets: [],
   };
 
-  if (
-    covidData &&
-    covidData.casesHistory &&
-    covidData.recoveredHistory &&
-    covidData.deathsHistory
-  ) {
+  if (covidData && covidData.casesHistory && covidData.deathsHistory) {
     mainChartData = {
       labels: [],
       datasets: [
-        // {
-        //     type: 'line',
-        //     label: 'Recovered',
-        //     data: covidData.recoveredHistory.data.map((recoveredData) => { return { x: recoveredData.date.substring(0, 10), y: recoveredData.recovered } }),
-        //     borderColor: '#2e33c7',
-        //     backgroundColor: '#2e33c7',
-        // },
         {
           type: "line",
           label: "Cases",
@@ -118,32 +106,44 @@ export default function MainChart({ covidData }) {
       datasets: [
         {
           label: "Unvaccinated",
-          // data: [{x: 100 - (100 * covidData.vaccinations.data.quotes.total), y: 1}],
-          data: [{ x: 24.9, y: 1 }],
+          data: [
+            { x: 100 - 100 * covidData.vaccinations.data.quotes.total, y: 1 },
+          ],
           borderColor: "red",
           borderWidth: 1,
           backgroundColor: "transparent",
         },
         {
           label: "3 Vaccinations",
-          // data: [{x: 100 * covidData.vaccinations.data.boosterVaccination.quotes.total, y: 1}],
-          data: [{ x: 47.6, y: 1 }],
+          data: [
+            {
+              x:
+                100 *
+                covidData.vaccinations.data.boosterVaccination.quotes.total,
+              y: 1,
+            },
+          ],
           borderColor: "green",
           borderWidth: 1,
           backgroundColor: "transparent",
         },
         {
           label: "2 Vaccinations",
-          // data: [{x: 100 * covidData.vaccinations.data.secondVaccination.quotes.total, y: 1}],
-          data: [{ x: 72.8, y: 1 }],
+          data: [
+            {
+              x:
+                100 *
+                covidData.vaccinations.data.secondVaccination.quotes.total,
+              y: 1,
+            },
+          ],
           borderColor: "blue",
           borderWidth: 1,
           backgroundColor: "transparent",
         },
         {
           label: "1 Vaccinations",
-          // data: [{x: 100 * covidData.vaccinations.data.quotes.total, y: 1}],
-          data: [{ x: 75.1, y: 1 }],
+          data: [{ x: 100 * covidData.vaccinations.data.quotes.total, y: 1 }],
           borderColor: "yellow",
           borderWidth: 1,
           backgroundColor: "transparent",
@@ -155,7 +155,7 @@ export default function MainChart({ covidData }) {
   if (!covidData) return <div>loading...</div>;
   return (
     <>
-      <div className={styles.number__group}>
+      {/* <div className={styles.number__group}>
         <div className={styles.number__subGroup}>
           <div className={styles.number__element}>
             <p className={styles.label}>Week Incidence</p>
@@ -184,12 +184,11 @@ export default function MainChart({ covidData }) {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div>
-                <Bar options={optionsStackedBar} data={vaccinationChartData} />
-            </div> */}
-
+        <Bar options={optionsStackedBar} data={vaccinationChartData} />
+      </div> */}
       <div id={styles.mainChart} className={styles.dashboard__element}>
         <Chart type="bar" options={options} data={mainChartData} />
       </div>

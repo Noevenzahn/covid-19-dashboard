@@ -4,12 +4,9 @@ import "chartjs-adapter-moment";
 
 import styles from "../styles/Home.module.css";
 
-import HospitalizationChart from "../components/HospitalizationChart";
-import PcrTestingChart from "../components/PcrTestingChart";
+import Overview from "../components/Overview";
 import MainChart from "../components/MainChart";
-import BoosterVaccChart from "../components/BoosterVaccChart";
-import FirstVaccChart from "../components/FirstVaccChart";
-import SecondVaccChart from "../components/SecondVaccChart";
+import Vaccinations from "../components/Vaccinations";
 
 export default function Home() {
   const baseUrl = "https://api.corona-zahlen.org/";
@@ -37,28 +34,12 @@ export default function Home() {
 
   if (!covidData) return <div>loading...</div>;
   return (
-    // <main id={styles.dashboard}>
-    <MainChart covidData={covidData} />
-    /* <div id={styles.vaccinationCharts}>
-        <div id={styles.FirstVaccChart} className={styles.dashboard__element}>
-          <FirstVaccChart covidData={covidData} />
-        </div>
-        <div id={styles.SecondVaccChart} className={styles.dashboard__element}>
-          <SecondVaccChart covidData={covidData} />
-        </div>
-        <div id={styles.BoosterVaccChart} className={styles.dashboard__element}>
-          <BoosterVaccChart covidData={covidData} />
-        </div>
-        <div id={styles.RValueChart} className={styles.dashboard__element}>
-          <BoosterVaccChart covidData={covidData} />
-        </div>
+    <>
+      <div style={{ display: "flex" }}>
+        <Overview covidData={covidData} />
+        <Vaccinations covidData={covidData} />
       </div>
-      <div id={styles.hospitalizationChart} className={styles.dashboard__element}>
-        <HospitalizationChart covidData={covidData} />
-      </div>
-      <div id={styles.PcrTestingChart} className={styles.dashboard__element}>
-        <PcrTestingChart covidData={covidData} />
-      </div> */
-    // </main>
+      <MainChart covidData={covidData} />
+    </>
   );
 }
