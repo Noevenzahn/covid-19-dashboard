@@ -42,7 +42,7 @@ export default function MainChart({ covidData }) {
     },
   };
 
-  const mainChartData = {
+  let mainChartData = {
     labels: [],
     datasets: [],
   };
