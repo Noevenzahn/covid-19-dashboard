@@ -24,6 +24,7 @@ export default function Home() {
         const res = await fetch(baseUrl + dataGermany[key]);
         const resJson = await res.json();
         setCovidData((data) => ({ ...data, [key]: resJson }));
+        console.log(covidData);
       }
     };
     fetchData();
