@@ -2,11 +2,8 @@ import { useEffect, useState } from "react";
 import { Chart as ChartJS } from "chart.js/auto";
 import "chartjs-adapter-moment";
 
-import styles from "../styles/Home.module.css";
-
 import Overview from "../components/Overview";
 import MainChart from "../components/MainChart";
-import Vaccinations from "../components/Vaccinations";
 
 export default function Home() {
   const baseUrl = "https://api.corona-zahlen.org/";
@@ -35,10 +32,7 @@ export default function Home() {
   if (!covidData) return <div>loading...</div>;
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <Overview covidData={covidData} />
-        <Vaccinations covidData={covidData} />
-      </div>
+      <Overview covidData={covidData} />
       <MainChart covidData={covidData} />
     </>
   );

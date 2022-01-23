@@ -3,7 +3,7 @@ import { Doughnut } from "react-chartjs-2";
 export default function FirstVaccChart({ covidData }) {
   const options = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",

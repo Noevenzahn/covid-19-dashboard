@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 export default function MainChart({ covidData }) {
   const options = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top",

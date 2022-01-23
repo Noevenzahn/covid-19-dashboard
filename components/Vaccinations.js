@@ -7,18 +7,22 @@ import FirstVaccChart from "./FirstVaccChart";
 export default function Vaccinations({ covidData }) {
   if (!covidData) return <div>loading...</div>;
   return (
-    <div id={styles.vaccinationCharts}>
-      <div id={styles.FirstVaccChart} className={styles.dashboard__element}>
-        <FirstVaccChart covidData={covidData} />
+    <div className={styles.number__group2}>
+      <div style={{ display: "flex" }}>
+        <div className={styles.dougnut__chart}>
+          <FirstVaccChart covidData={covidData} />
+        </div>
+        <div className={styles.dougnut__chart}>
+          <SecondVaccChart covidData={covidData} />
+        </div>
       </div>
-      <div id={styles.SecondVaccChart} className={styles.dashboard__element}>
-        <SecondVaccChart covidData={covidData} />
-      </div>
-      <div id={styles.BoosterVaccChart} className={styles.dashboard__element}>
-        <BoosterVaccChart covidData={covidData} />
-      </div>
-      <div id={styles.RValueChart} className={styles.dashboard__element}>
-        <BoosterVaccChart covidData={covidData} />
+      <div style={{ display: "flex" }}>
+        <div className={styles.dougnut__chart}>
+          <BoosterVaccChart covidData={covidData} />
+        </div>
+        <div className={styles.dougnut__chart}>
+          <BoosterVaccChart covidData={covidData} />
+        </div>
       </div>
     </div>
   );

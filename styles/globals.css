@@ -21,6 +21,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .mapboxgl-ctrl-icon {
   background-color: #cecccc !important;
 }
