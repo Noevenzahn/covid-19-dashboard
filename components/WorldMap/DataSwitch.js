@@ -1,4 +1,4 @@
-import styles from "../styles/WorldmapPage.module.css";
+import styles from "../../styles/WorldmapPage.module.css";
 
 export default function DataSwitch({ setShowedData }) {
   return (

@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const WorldMap = dynamic(() => import("../components/WorldMap"), {
+const WorldMap = dynamic(() => import("../components/WorldMap/WorldMap"), {
   ssr: false,
 });
 
