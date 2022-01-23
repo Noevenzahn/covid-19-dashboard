@@ -22,26 +22,21 @@ export default function MainChart({ covidData }) {
       x: {
         type: "time",
         time: {
-          displayFormats: {
-            month: "MMM",
-          },
+          unit: "month",
         },
         grid: {
           display: false,
-          // color: "#e5eaed"
         },
       },
       y: {
         grid: {
           display: false,
-          // color: "#e5eaed"
         },
       },
       y2: {
         position: "right",
         grid: {
           display: false,
-          // color: "#e5eaed"
         },
       },
     },
