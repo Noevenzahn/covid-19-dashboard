@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Chart as ChartJS } from "chart.js/auto";
 import "chartjs-adapter-moment";
 
+import Navigation from "../components/Interface/Navigation";
 import Overview from "../components/Overview";
 import MainChart from "../components/MainChart";
 
@@ -33,6 +34,7 @@ export default function Home() {
   if (!covidData) return <div>loading...</div>;
   return (
     <>
+      <Navigation />
       <Overview covidData={covidData} />
       <MainChart covidData={covidData} />
     </>
