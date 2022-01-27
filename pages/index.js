@@ -2,13 +2,17 @@ import { useEffect, useState } from "react";
 import { Chart as ChartJS } from "chart.js/auto";
 import "chartjs-adapter-moment";
 
+import styles from "../styles/Home.module.css";
+
 import Navigation from "../components/Interface/Navigation";
 import Overview from "../components/Overview";
 import MainChart from "../components/MainChart";
-import Footer from "../components/Interface/footer";
+import Footer from "../components/Interface/Footer";
+import Sidebar from "../components/Interface/Sidebar";
 
 export default function Home() {
   const [covidData, setCovidData] = useState();
+  const [sidebar, toggleSidebar] = useState(true);
 
   useEffect(() => {
     const baseUrl = "https://api.corona-zahlen.org/";
@@ -35,9 +39,14 @@ export default function Home() {
   if (!covidData) return <div>loading...</div>;
   return (
     <>
-      <Navigation />
-      <Overview covidData={covidData} />
-      <MainChart covidData={covidData} />
+      <Navigation toggleSidebar={toggleSidebar} />
+      <div className={styles.inner__elements}>
+        {sidebar ? <Sidebar /> : <></>}
+        <div>
+          <Overview covidData={covidData} />
+          <MainChart covidData={covidData} />
+        </div>
+      </div>
       <Footer data={covidData.overview} />
     </>
   );
