@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
 import { Chart as ChartJS } from "chart.js/auto";
 import "chartjs-adapter-moment";
+
+import { useEffect, useState, useContext } from "react";
+import { GlobalContext } from "../context/state";
 
 import styles from "../styles/Home.module.css";
 
@@ -12,7 +14,7 @@ import Sidebar from "../components/Interface/Sidebar";
 
 export default function Home() {
   const [covidData, setCovidData] = useState();
-  const [sidebar, toggleSidebar] = useState(true);
+  const [sidebar, toggleSidebar] = useContext(GlobalContext);
 
   useEffect(() => {
     const baseUrl = "https://api.corona-zahlen.org/";

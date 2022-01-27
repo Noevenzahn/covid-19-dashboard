@@ -47,7 +47,11 @@ export default function WorldMap() {
   useEffect(() => {
     const resize = () => {
       setViewport((viewport) => {
-        return { ...viewport, width: "100vw", height: "100vh" };
+        return {
+          ...viewport,
+          width: "calc(100vw - 75px)",
+          height: "calc(100vh - 57.5px)",
+        };
       });
     };
     window.addEventListener("resize", resize);
@@ -120,8 +124,8 @@ export default function WorldMap() {
     <div id={styles.map}>
       <DataSwitch setShowedData={setShowedData} />
       <ReactMapGL
-        width="100vw"
-        height="100vh"
+        width="calc(100vw - 75px)"
+        height="calc(100vh - 57.5px)"
         onViewportChange={setViewport}
         {...viewport}
         interactiveLayerIds={["circles"]}

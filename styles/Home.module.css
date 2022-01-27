@@ -15,9 +15,6 @@
   color: #ffffff;
   text-transform: uppercase;
 }
-.menu__icon:hover {
-  cursor: pointer;
-}
 .inner__elements {
   display: flex;
 }
@@ -29,11 +26,25 @@
   background-color: #1c1e1f;
 }
 .sidebar__element {
+  display: grid;
+  place-items: center;
   height: 5rem;
   width: 5rem;
   border-radius: 1rem;
   margin-bottom: 2rem;
   background-color: var(--element-background);
+}
+.active {
+  display: grid;
+  place-items: center;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--accent);
+}
+.sidebar__icon:hover {
+  cursor: pointer;
 }
 .bold {
   font-weight: 400;
@@ -76,9 +87,9 @@
   letter-spacing: 0.2rem;
   padding-bottom: 1rem;
   margin: 0;
-  color: #a4a4a4;
+  color: #cfd1d6;
   text-transform: uppercase;
-  border-bottom: 1px solid #a4a4a4;
+  border-bottom: 1px solid #cfd1d6;
 }
 .value {
   font-size: 5rem;
