@@ -5,6 +5,7 @@ import "chartjs-adapter-moment";
 import Navigation from "../components/Interface/Navigation";
 import Overview from "../components/Overview";
 import MainChart from "../components/MainChart";
+import Footer from "../components/Interface/footer";
 
 export default function Home() {
   const [covidData, setCovidData] = useState();
@@ -37,6 +38,7 @@ export default function Home() {
       <Navigation />
       <Overview covidData={covidData} />
       <MainChart covidData={covidData} />
+      <Footer data={covidData.overview} />
     </>
   );
 }

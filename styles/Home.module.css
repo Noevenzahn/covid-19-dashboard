@@ -1,4 +1,5 @@
-.navigation {
+.navigation,
+.footer {
   display: grid;
   grid-auto-flow: column;
   align-items: center;
@@ -7,11 +8,22 @@
 }
 .navigation p {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 300;
   letter-spacing: 0.1rem;
   margin: 0;
   color: #ffffff;
   text-transform: uppercase;
+}
+.bold {
+  font-weight: 400;
+}
+.footer p {
+  justify-self: center;
+  font-size: 1.4rem;
+  font-weight: 200;
+  font-style: italic;
+  margin: 0;
+  color: #ffffff;
 }
 .githubLogo {
   justify-self: end;
@@ -35,6 +47,7 @@
 }
 .label {
   font-size: 1.6rem;
+  font-weight: 300;
   letter-spacing: 0.2rem;
   padding-bottom: 1rem;
   margin: 0;
@@ -45,7 +58,7 @@
 .value {
   font-size: 5rem;
   color: #ffffff;
-  margin: 2rem 0 0 0;
+  margin: 1.75rem 0 0 0;
 }
 
 #mainChart {
