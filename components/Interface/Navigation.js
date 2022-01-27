@@ -7,7 +7,9 @@ export default function Navigation() {
   return (
     <div className={styles.navigation}>
       <p>Covid Dashboard</p>
-      <a href="https://github.com/Noevenzahn" className={styles.githubLogo}>
+      <a
+        href="https://github.com/Noevenzahn/covid-19-dashboard"
+        className={styles.githubLogo}>
         <Image src={githubLogo} alt="" />
       </a>
     </div>
