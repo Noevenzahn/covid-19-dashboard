@@ -38,18 +38,21 @@ export default function Home() {
     fetchData();
   }, []);
 
-  if (!covidData) return <div>loading...</div>;
   return (
     <>
       <Navigation toggleSidebar={toggleSidebar} />
       <div className={styles.inner__elements}>
         {sidebar ? <Sidebar /> : <></>}
-        <div>
-          <Overview covidData={covidData} />
-          <MainChart covidData={covidData} />
-        </div>
+        {covidData ? (
+          <div>
+            <Overview covidData={covidData} />
+            <MainChart covidData={covidData} />
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
-      <Footer data={covidData.overview} />
+      <Footer data={covidData?.overview} />
     </>
   );
 }

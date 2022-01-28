@@ -5,15 +5,15 @@ export default function Footer({ data }) {
     <div className={styles.footer}>
       <p>
         <span className={styles.bold}>Source: </span>
-        {data.meta.source}
+        {data?.meta.source}
       </p>
       <p>
         <span className={styles.bold}>API-Source: </span>
-        <a href={data.meta.info}>RKI Covid API</a>
+        <a href={data?.meta.info}>RKI Covid API</a>
       </p>
       <p>
         <span className={styles.bold}>Last Update: </span>
-        {data.meta.lastUpdate
+        {data?.meta.lastUpdate
           .substring(0, 10)
           .replace("-", "/")
           .replace("-", "/")}
