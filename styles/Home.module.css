@@ -15,6 +15,9 @@
   color: #ffffff;
   text-transform: uppercase;
 }
+.menu__icon {
+  cursor: pointer;
+}
 .inner__elements {
   display: flex;
 }

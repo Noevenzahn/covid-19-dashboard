@@ -1,10 +1,11 @@
 #map {
   display: grid;
+  position: relative;
 }
 .dataswitch {
   position: absolute;
   justify-self: center;
-  top: 1vh;
+  top: 2vh;
   z-index: 1;
 }
 .dataswitch__button {
