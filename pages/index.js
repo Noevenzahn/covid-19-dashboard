@@ -39,12 +39,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="full__width">
+    <>
       <Navigation toggleSidebar={toggleSidebar} />
       <div className={styles.inner__elements}>
         {sidebar ? <Sidebar /> : <></>}
         {covidData ? (
-          <div>
+          <div className="full__width">
             <Overview covidData={covidData} />
             <MainChart covidData={covidData} />
           </div>
@@ -53,6 +53,6 @@ export default function Home() {
         )}
       </div>
       <Footer data={covidData?.overview} />
-    </div>
+    </>
   );
 }
