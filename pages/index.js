@@ -1,7 +1,7 @@
 import { Chart as ChartJS } from "chart.js/auto";
 import "chartjs-adapter-moment";
 
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "../context/state";
 
 import styles from "../styles/Home.module.css";
@@ -13,30 +13,8 @@ import Footer from "../components/Interface/Footer";
 import Sidebar from "../components/Interface/Sidebar";
 
 export default function Home() {
-  const [covidData, setCovidData] = useState();
+  const [covidData, setCovidData] = useContext(GlobalContext);
   const [sidebar, toggleSidebar] = useContext(GlobalContext);
-
-  useEffect(() => {
-    const baseUrl = "https://api.corona-zahlen.org/";
-    const dataGermany = {
-      overview: "germany",
-      casesHistory: "germany/history/cases/",
-      deathsHistory: "germany/history/deaths/",
-      recoveredHistory: "germany/history/recovered/",
-      vaccinations: "vaccinations",
-      hospitalizationHistory: "germany/history/hospitalization/",
-      pcrTesting: "testing/history",
-    };
-
-    const fetchData = async () => {
-      for (const key in dataGermany) {
-        const res = await fetch(baseUrl + dataGermany[key]);
-        const resJson = await res.json();
-        setCovidData((data) => ({ ...data, [key]: resJson }));
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <>

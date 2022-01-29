@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import { GlobalContext } from "../context/state";
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 
 import styles from "../styles/Home.module.css";
 
