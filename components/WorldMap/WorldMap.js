@@ -132,7 +132,7 @@ export default function WorldMap() {
         onHover={handleHover}
         attributionControl={false}
         mapStyle="mapbox://styles/mapbox/dark-v10"
-        mapboxApiAccessToken="pk.eyJ1IjoiajAzZXBoIiwiYSI6ImNreDgwamxyYzM4NHIydnA4Y3ZqbXQ3MmIifQ.eqaKtWYXhRnakGf5uAlaOw">
+        mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX}>
         <AttributionControl compact={false} style={{ bottom: 0, right: 0 }} />
         <FullscreenControl style={{ top: "1.5vw", left: "1.5vw" }} />
         <NavigationControl style={{ top: "1.5vw", right: "1.5vw" }} />
