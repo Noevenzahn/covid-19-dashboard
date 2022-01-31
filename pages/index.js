@@ -25,12 +25,12 @@ export default function Home() {
           <div className="full__width">
             <Overview covidData={covidData} />
             <MainChart covidData={covidData} />
+            <Footer data={covidData?.overview} />
           </div>
         ) : (
           <></>
         )}
       </div>
-      <Footer data={covidData?.overview} />
     </>
   );
 }

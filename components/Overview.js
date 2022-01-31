@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css";
 
 export default function Overview({ covidData }) {
+  if (!covidData.overview) return <></>;
   return (
     <div className={styles.overview__group}>
       <div className={styles.overview__subGroup}>
