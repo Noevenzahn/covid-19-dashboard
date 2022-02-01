@@ -19,4 +19,8 @@
   background-color: var(--element-background);
   border-radius: 1rem;
   cursor: pointer;
+  transition: background-color 300ms ease-in-out;
+}
+.dataswitch__button:hover {
+  background-color: var(--popupColor);
 }
