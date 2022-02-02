@@ -1,4 +1,4 @@
-import ContextProvider from "../context/state";
+import ContextProvider from "../context/context";
 
 import "../styles/globals.css";
 

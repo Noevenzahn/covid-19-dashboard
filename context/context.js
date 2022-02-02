@@ -29,8 +29,7 @@ export default function ContextProvider({ children }) {
   }, []);
 
   return (
-    <GlobalContext.Provider
-      value={([sidebar, toggleSidebar], [covidData, setCovidData])}>
+    <GlobalContext.Provider value={{ sidebar, toggleSidebar, covidData }}>
       {children}
     </GlobalContext.Provider>
   );

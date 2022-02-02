@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { GlobalContext } from "../context/state";
+import { GlobalContext } from "../context/context";
 import { useContext } from "react";
 
 import styles from "../styles/Home.module.css";
@@ -14,7 +14,7 @@ const WorldMap = dynamic(() => import("../components/WorldMap/WorldMap"), {
 });
 
 export default function WorldmapPage() {
-  const [sidebar, toggleSidebar] = useContext(GlobalContext);
+  const { sidebar, toggleSidebar } = useContext(GlobalContext);
 
   return (
     <>
