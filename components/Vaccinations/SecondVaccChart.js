@@ -15,7 +15,7 @@ export default function BoosterVaccChart({ covidData }) {
     },
   };
 
-  const SecondVaccChartData = {
+  let SecondVaccChartData = {
     labels: [],
     datasets: [],
   };

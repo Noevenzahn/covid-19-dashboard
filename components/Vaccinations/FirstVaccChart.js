@@ -15,7 +15,7 @@ export default function FirstVaccChart({ covidData }) {
     },
   };
 
-  const FirstVaccChartData = {
+  let FirstVaccChartData = {
     labels: [],
     datasets: [],
   };

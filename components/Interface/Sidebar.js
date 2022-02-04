@@ -34,18 +34,18 @@ export default function Sidebar() {
             </div>
           </a>
         </Link>
-        <div
-          className={
-            router.pathname == "" ? styles.active : styles.sidebar__element
-          }></div>
-        <div
-          className={
-            router.pathname == "" ? styles.active : styles.sidebar__element
-          }></div>
-        <div
-          className={
-            router.pathname == "" ? styles.active : styles.sidebar__element
-          }></div>
+        <Link href="/vaccinations">
+          <a>
+            <div
+              className={
+                router.pathname == "/vaccinations"
+                  ? styles.active
+                  : styles.sidebar__element
+              }>
+              {/* <Image src={globeIcon} alt="" className={styles.sidebar__icon} /> */}
+            </div>
+          </a>
+        </Link>
       </nav>
     </>
   );
