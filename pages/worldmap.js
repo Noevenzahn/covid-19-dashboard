@@ -7,8 +7,8 @@ const WorldMap = dynamic(() => import("../components/WorldMap/WorldMap"), {
 
 export default function WorldmapPage() {
   return (
-    <>
+    <div className="full__width">
       <WorldMap />
-    </>
+    </div>
   );
 }

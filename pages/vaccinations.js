@@ -6,8 +6,9 @@ import { GlobalContext } from "../context/context";
 
 import Vaccinations from "../components/Vaccinations/Vaccinations";
 import Footer from "../components/Interface/Footer";
+import Loader from "../components/Interface/Loader";
 
-export default function Home() {
+export default function VaccinationsPage() {
   const { covidData } = useContext(GlobalContext);
 
   return (
@@ -18,7 +19,7 @@ export default function Home() {
           <Footer data={covidData?.overview} />
         </div>
       ) : (
-        <></>
+        <Loader />
       )}
     </>
   );

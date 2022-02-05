@@ -7,6 +7,7 @@ import { GlobalContext } from "../context/context";
 import Overview from "../components/Overview";
 import MainChart from "../components/MainChart";
 import Footer from "../components/Interface/Footer";
+import Loader from "../components/Interface/Loader";
 
 export default function Home() {
   const { covidData } = useContext(GlobalContext);
@@ -20,7 +21,7 @@ export default function Home() {
           <Footer data={covidData?.overview} />
         </div>
       ) : (
-        <></>
+        <Loader />
       )}
     </>
   );

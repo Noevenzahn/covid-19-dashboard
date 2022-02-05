@@ -11,6 +11,7 @@ import styles from "../../styles/WorldmapPage.module.css";
 
 import { WorldDataFetcher } from "../../lib/Fetchers";
 import DataSwitch from "./DataSwitch";
+import Loader from "../Interface/Loader";
 
 export default function WorldMap() {
   const [geojson, setGeojson] = useState();
@@ -120,7 +121,7 @@ export default function WorldMap() {
     }
   };
 
-  if (!geojson) return <div>loading...</div>;
+  if (!geojson) return <Loader />;
   return (
     <div id={styles.map}>
       <DataSwitch setShowedData={setShowedData} />
