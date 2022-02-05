@@ -23,7 +23,7 @@ export default function Vaccinations({ covidData }) {
             </p>
           </div>
           <div className={styles.overview__element}>
-            <p className={styles.label}>Secound Vaccination</p>
+            <p className={styles.label}>Second Vaccination</p>
             <p className={styles.value}>
               {covidData.vaccinations.data.secondVaccination.vaccinated.toLocaleString()}
             </p>
