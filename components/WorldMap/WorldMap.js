@@ -7,9 +7,10 @@ import ReactMapGL, {
   Popup,
 } from "react-map-gl";
 import { useEffect, useState } from "react";
+import styles from "../../styles/WorldmapPage.module.css";
+
 import { WorldDataFetcher } from "../../lib/Fetchers";
 import DataSwitch from "./DataSwitch";
-import styles from "../../styles/WorldmapPage.module.css";
 
 export default function WorldMap() {
   const [geojson, setGeojson] = useState();

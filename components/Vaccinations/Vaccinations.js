@@ -1,5 +1,3 @@
-import styles from "../../styles/Home.module.css";
-
 import BoosterVaccChart from "./BoosterVaccChart";
 import SecondVaccChart from "./SecondVaccChart";
 import FirstVaccChart from "./FirstVaccChart";
