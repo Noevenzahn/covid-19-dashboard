@@ -16,7 +16,7 @@ export default function VaccinationsPage() {
       {covidData ? (
         <div className="full__width">
           <Vaccinations covidData={covidData} />
-          <Footer data={covidData?.overview} />
+          <Footer data={covidData?.vaccinations} />
         </div>
       ) : (
         <Loader />
