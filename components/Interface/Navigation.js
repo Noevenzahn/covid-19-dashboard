@@ -1,10 +1,14 @@
+import { useContext } from "react";
+import { GlobalContext } from "../../context/context";
 import Image from "next/image";
+import styles from "../../styles/Home.module.css";
+
 import githubLogo from "../../public/github-logo.svg";
 import menuIcon from "../../public/menu-icon.svg";
 
-import styles from "../../styles/Home.module.css";
+export default function Navigation() {
+  const { toggleSidebar } = useContext(GlobalContext);
 
-export default function Navigation({ toggleSidebar }) {
   return (
     <div className={styles.navigation}>
       <div className={styles["row--centered"]}>

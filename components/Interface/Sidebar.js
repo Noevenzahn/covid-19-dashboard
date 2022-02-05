@@ -1,14 +1,18 @@
+import { useContext } from "react";
+import { useRouter } from "next/router";
+import { GlobalContext } from "../../context/context";
 import Image from "next/image";
 import Link from "next/link";
-
 import styles from "../../styles/Home.module.css";
 
 import globeIcon from "../../public/globe-icon.svg";
 import menuIcon from "../../public/menu-icon.svg";
-import { useRouter } from "next/router";
 
 export default function Sidebar() {
   const router = useRouter();
+  const { sidebar } = useContext(GlobalContext);
+
+  if (!sidebar) return <></>;
   return (
     <>
       <nav className={styles.sidebar}>
