@@ -13,25 +13,25 @@ export default function Vaccinations({ covidData }) {
           <div className={styles.overview__element}>
             <p className={styles.label}>Administered</p>
             <p className={styles.value}>
-              {covidData.vaccinations.data.administeredVaccinations}
+              {covidData.vaccinations.data.administeredVaccinations.toLocaleString()}
             </p>
           </div>
           <div className={styles.overview__element}>
             <p className={styles.label}>First Vaccination</p>
             <p className={styles.value}>
-              {covidData.vaccinations.data.vaccinated}
+              {covidData.vaccinations.data.vaccinated.toLocaleString()}
             </p>
           </div>
           <div className={styles.overview__element}>
             <p className={styles.label}>Secound Vaccination</p>
             <p className={styles.value}>
-              {covidData.vaccinations.data.secondVaccination.vaccinated}
+              {covidData.vaccinations.data.secondVaccination.vaccinated.toLocaleString()}
             </p>
           </div>
           <div className={styles.overview__element}>
             <p className={styles.label}>Booster Vaccination</p>
             <p className={styles.value}>
-              {covidData.vaccinations.data.boosterVaccination.vaccinated}
+              {covidData.vaccinations.data.boosterVaccination.vaccinated.toLocaleString()}
             </p>
           </div>
         </div>
