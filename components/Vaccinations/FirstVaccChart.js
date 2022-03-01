@@ -31,7 +31,7 @@ export default function FirstVaccChart({ covidData }) {
             100 - covidData.vaccinations.data.quote * 100,
           ],
           borderColor: "transparent",
-          backgroundColor: ["#2e33c7", "#e5eaed"],
+          backgroundColor: ["#fc3228", "#242628"],
         },
       ],
     };

@@ -31,7 +31,7 @@ export default function BoosterVaccChart({ covidData }) {
             100 - covidData.vaccinations.data.boosterVaccination.quote * 100,
           ],
           borderColor: "transparent",
-          backgroundColor: ["#2e33c7", "#e5eaed"],
+          backgroundColor: ["#fc3228", "#242628"],
         },
       ],
     };
