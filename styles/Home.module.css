@@ -100,7 +100,6 @@
   color: #ffffff;
   margin: 1.75rem 0 0 0;
 }
-
 #mainChart {
   grid-area: main-chart;
   display: grid;
@@ -110,6 +109,9 @@
   border-radius: 1rem;
   padding: 3rem;
   margin: 0 2rem 2rem 2rem;
+}
+.vaccChart {
+  width: 33%;
 }
 
 @media screen and (max-width: 500px) {
@@ -141,6 +143,9 @@
   }
   .value {
     font-size: 3.5rem;
+  }
+  .vaccChart {
+    width: 100%;
   }
   .footer {
     grid-auto-flow: row;

@@ -35,16 +35,16 @@ export default function Vaccinations({ covidData }) {
             </p>
           </div>
         </div>
-      </div>
-      <div style={{ display: "flex" }}>
-        <div style={{ width: "33%" }}>
-          <FirstVaccChart covidData={covidData} />
-        </div>
-        <div style={{ width: "33%" }}>
-          <SecondVaccChart covidData={covidData} />
-        </div>
-        <div style={{ width: "33%" }}>
-          <BoosterVaccChart covidData={covidData} />
+        <div className={styles.overview__subGroup}>
+          <div className={styles.vaccChart}>
+            <FirstVaccChart covidData={covidData} />
+          </div>
+          <div className={styles.vaccChart}>
+            <SecondVaccChart covidData={covidData} />
+          </div>
+          <div className={styles.vaccChart}>
+            <BoosterVaccChart covidData={covidData} />
+          </div>
         </div>
       </div>
     </>
