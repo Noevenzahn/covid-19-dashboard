@@ -37,12 +37,21 @@ export default function Vaccinations({ covidData }) {
         </div>
         <div className={styles.overview__subGroup}>
           <div className={styles.vaccChart}>
+            <span className={styles.vaccNumber}>
+              {covidData.vaccinations.data.quote * 100}%
+            </span>
             <FirstVaccChart covidData={covidData} />
           </div>
           <div className={styles.vaccChart}>
+            <span className={styles.vaccNumber}>
+              {covidData.vaccinations.data.secondVaccination.quote * 100}%
+            </span>
             <SecondVaccChart covidData={covidData} />
           </div>
           <div className={styles.vaccChart}>
+            <span className={styles.vaccNumber}>
+              {covidData.vaccinations.data.boosterVaccination.quote * 100}%
+            </span>
             <BoosterVaccChart covidData={covidData} />
           </div>
         </div>

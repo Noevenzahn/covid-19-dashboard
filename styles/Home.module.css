@@ -111,7 +111,17 @@
   margin: 0 2rem 2rem 2rem;
 }
 .vaccChart {
+  position: relative;
+  display: grid;
+  place-items: center;
   width: 33%;
+}
+.vaccNumber {
+  position: absolute;
+  top: 53.5%;
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 @media screen and (max-width: 500px) {
