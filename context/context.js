@@ -3,7 +3,6 @@ import { createContext, useState, useEffect } from "react";
 export const GlobalContext = createContext();
 
 export default function ContextProvider({ children }) {
-  const [sidebar, toggleSidebar] = useState(true);
   const [covidData, setCovidData] = useState();
 
   useEffect(() => {
@@ -29,7 +28,7 @@ export default function ContextProvider({ children }) {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ sidebar, toggleSidebar, covidData }}>
+    <GlobalContext.Provider value={{ covidData }}>
       {children}
     </GlobalContext.Provider>
   );

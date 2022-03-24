@@ -51,7 +51,7 @@ export default function WorldMap() {
       setViewport((viewport) => {
         return {
           ...viewport,
-          width: "calc(100vw - 75px)",
+          width: "100vw",
           height: "calc(100vh - 57.5px)",
         };
       });
@@ -126,7 +126,7 @@ export default function WorldMap() {
     <div id={styles.map}>
       <DataSwitch setShowedData={setShowedData} />
       <ReactMapGL
-        width="calc(100vw - 75px)"
+        width="100vw"
         height="calc(100vh - 57.5px)"
         onViewportChange={setViewport}
         {...viewport}
