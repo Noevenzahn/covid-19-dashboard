@@ -1,23 +1,42 @@
 import { useContext } from "react";
+import { useRouter } from "next/router";
 import { GlobalContext } from "../../context/context";
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
+import Link from "next/link";
 
 import githubLogo from "../../public/github-logo.svg";
 import menuIcon from "../../public/menu-icon.svg";
+import globeIcon from "../../public/globe-icon.svg";
 
 export default function Navigation() {
-  const { toggleSidebar } = useContext(GlobalContext);
+  const router = useRouter();
 
   return (
     <div className={styles.navigation}>
       <div className={styles["row--centered"]}>
-        <Image
-          src={menuIcon}
-          alt=""
-          className={styles.menu__icon}
-          onClick={() => toggleSidebar((state) => !state)}
-        />
+        <Link href="/">
+          <a>
+            <div
+              className={
+                router.pathname == "/" ? styles.active : styles.sidebar__element
+              }>
+              <Image src={menuIcon} alt="" className={styles.sidebar__icon} />
+            </div>
+          </a>
+        </Link>
+        <Link href="/worldmap">
+          <a>
+            <div
+              className={
+                router.pathname == "/worldmap"
+                  ? styles.active
+                  : styles.sidebar__element
+              }>
+              <Image src={globeIcon} alt="" className={styles.sidebar__icon} />
+            </div>
+          </a>
+        </Link>
         <p>Covid Dashboard</p>
       </div>
       <a
